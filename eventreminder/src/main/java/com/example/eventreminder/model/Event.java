@@ -15,40 +15,46 @@ public class Event {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    private String event;
+    private String eventName;
     private LocalDate date;
     private LocalTime time;
 
     @Column(length=1000)
     private String description;
 
+    private String status;
 
-    public Event(String event, LocalDate date, LocalTime time, String description) {
-        this.event = event;
+
+    public Event(String eventName, LocalDate date, LocalTime time, String description) {
+        this.eventName = eventName;
         this.date = date;
         this.time = time;
         this.description = description;
+        this.status = "Pending...";
     }
 
     // Getters setters
     public Long getID() {
         return id;
     }
-    public String getEvent() {
-        return event;
+    public String getEventName() {
+        return eventName;
     }
     public LocalDate getDate() {
         return date;
     }
-    public LocalTime getTIme() {
+    public LocalTime getTime() {
         return time;
     }
     public String getDescription() {
         return description;
     }
+    public String getStatus() {
+        return status;
+    }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
     public void setDate(LocalDate date) {
         this.date = date;
@@ -58,6 +64,9 @@ public class Event {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }
